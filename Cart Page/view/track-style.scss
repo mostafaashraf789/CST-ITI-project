@@ -1,0 +1,122 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  background-image: url('./assets/images/moon.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+
+  main {
+    padding: 20px;
+    .order-details {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      .order-summary-container {
+        margin-top: 20px;
+      }
+      .hh-grayBox {
+        background-color: #f8f8f8;
+        margin-bottom: 20px;
+        padding: 35px;
+        margin-top: 20px;
+      }
+
+      .pt45 {
+        padding-top: 45px;
+      }
+
+      .order-tracking {
+        text-align: center;
+        width: 33.33%;
+        position: relative;
+        display: block;
+        .is-complete {
+          display: block;
+          position: relative;
+          border-radius: 50%;
+          height: 30px;
+          width: 30px;
+          border: 0px solid #afafaf;
+          background-color: #f7be16;
+          margin: 0 auto;
+          transition: background 0.25s linear;
+          -webkit-transition: background 0.25s linear;
+          z-index: 2;
+          &::after {
+            display: block;
+            position: absolute;
+            content: '';
+            height: 14px;
+            width: 7px;
+            top: -2px;
+            bottom: 0;
+            left: 5px;
+            margin: auto 0;
+            border: 0px solid #afafaf;
+            border-width: 0px 2px 2px 0;
+            transform: rotate(45deg);
+            opacity: 0;
+          }
+        }
+        p {
+          color: #a4a4a4;
+          font-size: 16px;
+          margin-top: 8px;
+          margin-bottom: 0;
+          line-height: 20px;
+          span {
+            font-size: 14px;
+          }
+        }
+        &::before {
+          content: '';
+          display: block;
+          height: 3px;
+          width: calc(100% - 40px);
+          background-color: #f7be16;
+          top: 13px;
+          position: absolute;
+          left: calc(-50% + 20px);
+          z-index: 0;
+        }
+        &:first-child:before {
+          display: none;
+        }
+        &.completed .is-complete {
+          border-color: #27aa80;
+          border-width: 0px;
+          background-color: #27aa80;
+        }
+        &.completed p {
+          color: #000;
+        }
+        &.completed .is-complete:after {
+          border-color: #fff;
+          border-width: 0px 3px 3px 0;
+          width: 7px;
+          left: 11px;
+          opacity: 1;
+        }
+        &.completed::before {
+          background-color: #27aa80;
+        }
+      }
+    }
+  }
+  #home-page-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    cursor: pointer;
+  }
+}

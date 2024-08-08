@@ -1,0 +1,24 @@
+@use './Base/reset' as *;
+@use './Abstract/colores-variables' as *;
+@use './Abstract/media-mixin' as *;
+@include create-media;
+@import 'home.css';
+@import '/Cart Page/view/cart-style.css';
+:root {
+  --main-bg-color: #{$bg-primary};
+  --secondary-bg-color: #{$bg-secondary};
+  --primary-bg-header-footer: #{$bg-header-footer};
+  --main-text-color: #{$text-white};
+  --secondary-text-color: #{$text-off-white};
+  --button-bg-color: #{$bg-primary};
+  --button-text-color: #{$bg-primary};
+  // fontSize
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-sm: 0.875rem;
+  --button-font-size: 1rem;
+}
+
+// a {
+//   color: var(--primary-bg-header-footer);
+// }

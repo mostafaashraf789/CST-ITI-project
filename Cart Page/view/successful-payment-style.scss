@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #f4f4f4;
+  background-image: url('./assets/images/moon.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bill-container {
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  padding: 20px;
+  background: white;
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #212721;
+  border-radius: 5px;
+  z-index: 1000;
+  transition: top 1s ease-in-out;
+  background-image: url('./assets/images/moon.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  .bill-content {
+    text-align: center;
+  }
+  h4 {
+    color: lightgreen;
+  }
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.show {
+  top: 10%;
+}

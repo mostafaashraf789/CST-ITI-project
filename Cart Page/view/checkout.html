@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moon Shop</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./checkout-style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown link
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav> -->
+    <!-- Checkout section -->
+    <section
+      class="checkout-main-section container-fluid row border border-4 m-0 p-3"
+    >
+      <div class="col-6">
+        <h4 class="section-title">Shopping Address</h4>
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label for="firstName" class="form-label">First name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="First name"
+              aria-label="First name"
+              id="first-name"
+              required
+              name="first-name"
+            />
+            <p class="validation-message" style="color: red"></p>
+          </div>
+          <div class="col-md-6">
+            <label for="lastName" class="form-label">Last name</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Last name"
+              aria-label="Last name"
+              id="last-name"
+              required
+              name="last-name"
+            />
+            <p class="validation-message" style="color: red"></p>
+          </div>
+          <div class="col-md-6">
+            <label for="phoneNumber" class="form-label">Phone Number</label>
+            <input
+              type="tel"
+              class="form-control"
+              id="phone-number"
+              name="phone-number"
+              required
+            />
+            <p class="validation-message" style="color: red"></p>
+          </div>
+          <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              required
+              name="email"
+            />
+            <p class="validation-message" style="color: red"></p>
+          </div>
+          <!-- <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Password</label>
+            <input type="password" class="form-control" id="inputPassword4" />
+          </div> -->
+          <div class="col-12">
+            <label for="main-address" class="form-label">Address</label>
+            <input
+              type="text"
+              class="form-control"
+              id="main-address"
+              placeholder="1234 Main St"
+              required
+              name="main-address"
+            />
+            <p class="validation-message" style="color: red"></p>
+          </div>
+          <div class="col-12">
+            <label for="second-address" class="form-label">Address 2</label>
+            <input
+              type="text"
+              class="form-control"
+              id="second-address"
+              placeholder="Apartment, studio, or floor"
+              name="second-address"
+            />
+            <p class="validation-message" style="color: red"></p>
+          </div>
+          <div class="col-md-4">
+            <label for="inputCity" class="form-label">City</label>
+            <select
+              id="selected-city"
+              class="form-select"
+              name="selected-city"
+              required
+            >
+              <option selected value="none">Choose...</option>
+            </select>
+            <p class="validation-message" style="color: red"></p>
+          </div>
+          <div class="col-md-4">
+            <label for="inputState" class="form-label">State</label>
+            <select
+              id="selected-state"
+              class="form-select"
+              name="selected-state"
+              required
+            >
+              <option selected value="none">Choose...</option>
+            </select>
+            <p class="validation-message" style="color: red"></p>
+          </div>
+          <div class="col-md-4">
+            <label for="inputZip" class="form-label">Zip</label>
+            <input
+              type="text"
+              class="form-control"
+              id="zip-code"
+              name="zip-code"
+              required
+            />
+            <p class="validation-message" style="color: red"></p>
+          </div>
+          <div class="col-md-3">
+            <button
+              class="submit-form-address btn btn-success"
+              id="onfirmAddresliveToast"
+            >
+              Confirm
+            </button>
+          </div>
+          <div class="col-md-2">
+            <input
+              type="button"
+              class="btn btn-danger d-inline-block px-4"
+              value="Clear"
+              data-bs-toggle="modal"
+              data-bs-target="#clearAddressForm"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="col-6">
+        <div class="order-summary-container">
+          <div class="order-summary-details row text-center pt-3">
+            <h4 class="col-md-12 mb-4">Order Summary</h4>
+            <p class="subtotal-items col-md-6">Subtotal(3 items)</p>
+            <p class="subtotal-items-price col-md-6">EGP 00.00</p>
+            <p class="col-md-6">Shipping Fee</p>
+            <p class="shipping-fee col-md-6">EGP 0</p>
+            <p class="additional-discount col-md-6">Additional Discount</p>
+            <p class="promotion-value col-md-6">EGP 0</p>
+            <div class="col-md-12 d-flex justify-content-center mb-3">
+              <hr class="col-md-6" />
+            </div>
+            <p class="col-md-6">Total(Inclusive of VAT)</p>
+            <p class="total-price col-md-6">EGP 00.00</p>
+            <button
+              onclick="window.location.href='#payment-section'"
+              class="checkout col-md-4 m-auto mt-3 btn btn-success"
+            >
+              Place Order
+            </button>
+          </div>
+          <div
+            class="security-message mt-5 col-md-6 ms-auto border border-1 rounded-1 pt-2 px-3"
+          >
+            <p>
+              <small
+                >🔒 Security and Privacy Our checkout is safe and secure. Your
+                personal and payment information is securely transmitted via
+                128-bit encryption. We do not store any payment card information
+                on our systems © 2024 Moon. All Rights Reserved Terms of
+                UseTerms of Sale Privacy Policy.</small
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- order section -->
+      <div class="products-details-of-checkout col-md-6 mt-5 pb-4">
+        <h4
+          class="my-4 text-light border border-2 d-inline-block p-2 px-5 bg-black rounded-1"
+        >
+          Your Order
+        </h4>
+        <!-- <div
+          class="single-added-item-details row gx-0 gap-3 align-items-center p-3 mb-3 border border-2"
+          id="_${products[i].id}"
+        >
+          <div class="added-item-description row g-0 col-lg-3 text-center">
+            <span class="col-md-12"
+              ><img
+                src="./assets/images/test.jpg"
+                alt="${products[i].title}"
+                style="width: 100%"
+              />
+            </span>
+            <div>
+              <p
+                class="text-light mt-4 col-md-12 border border-1 bg-light text-dark rounded-1 p-2 responsive-text"
+              >
+                ${products[i].title}
+              </p>
+            </div>
+          </div>
+          <div
+            class="added-item-pricing m-0 p-3 rounded-1 text-center col-lg-8 row g-0"
+          >
+            <div
+              class="count-of-items m-0 p-0 bg- col-md-3 d-flex align-items-center justify-content-center"
+            >
+              <p class="m-0 p-0">
+                <span class="text-light">1</span>
+                <span class="iconamoon--arrow-down-2-bold"></span>
+              </p>
+              <ul class="display-none-toggle m-0 p-0 bg-danger">
+                <li>22</li>
+                <li>66</li>
+              </ul>
+            </div>
+
+            <p
+              class="price text-center text-light m-0 p-0 col-md-6 bg-success d-flex align-items-center justify-content-center"
+            >
+              EGP ${products[i].price}
+            </p>
+            <div class="col-md-3 bg-body-secondary">
+              <button
+                type="button"
+                class="remove-btn"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip"
+                data-bs-title="Remove"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-trash"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"
+                  ></path>
+                  <path
+                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div
+          class="single-added-item-details row gx-0 gap-3 align-items-center p-3 mb-3 border border-2"
+          id="_${products[i].id}"
+        >
+          <div class="added-item-description row g-0 col-lg-3 text-center">
+            <span class="col-md-12"
+              ><img
+                src="./assets/images/test.jpg"
+                alt="${products[i].title}"
+                style="width: 100%"
+              />
+            </span>
+            <div>
+              <p
+                class="text-light mt-4 col-md-12 border border-1 bg-light text-dark rounded-1 p-2 responsive-text"
+              >
+                ${products[i].title}
+              </p>
+            </div>
+          </div>
+          <div
+            class="added-item-pricing m-0 p-3 rounded-1 text-center col-lg-8 d-flex align-items-center justify-content-evenly"
+          >
+            <div class="count-of-items m-0 p-0">
+              <p class="m-0 p-0">
+                <span class="text-light">1</span>
+                <span class="iconamoon--arrow-down-2-bold"></span>
+              </p>
+              <ul class="display-none-toggle m-0 p-0"></ul>
+            </div>
+
+            <p class="price text-light m-0 p-0">EGP ${products[i].price}</p>
+            <div class="">
+              <button
+                type="button"
+                class="remove-btn"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip"
+                data-bs-title="Remove"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-trash"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"
+                  ></path>
+                  <path
+                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        -->
+      </div>
+
+      <!-- payment section -->
+      <div class="col-12 col-md-6 mt-5 pb-4" id="payment-section">
+        <h4
+          class="text-light my-4 border border-2 d-inline-block p-2 px-5 bg-black rounded-1"
+        >
+          Payment
+        </h4>
+        <div class="payament-container rounded-1 row gap-5 bg-black">
+          <h5
+            class="debit-card btn btn-dark col-md-5 text-light p-2 d-flex align-items-center justify-content-center column-gap-3 border border-1"
+          >
+            <span class="twemoji--credit-card"></span>
+            Debit/Credit Card
+          </h5>
+          <h5
+            class="cash-on-delivery btn btn-dark col-md-5 text-light p-2 d-flex align-items-center justify-content-center column-gap-3 border border-1"
+          >
+            <span class="game-icons--cash"></span>
+            Cash on Delivery
+          </h5>
+
+          <form id="debitCardForm" class="row g-3 mt-0 p-3 gap-0">
+            <p class="col-md-6 text-center">
+              <span
+                class="logos--mastercard"
+                style="width: 4rem; height: 4rem"
+              ></span>
+            </p>
+            <p class="col-md-6 text-center">
+              <span
+                class="fa--cc-visa"
+                style="width: 4rem; height: 4rem"
+              ></span>
+            </p>
+            <div class="col-md-12">
+              <label for="nameOnCard" class="form-label">Name on card</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Name on card"
+                aria-label="Name on card"
+                id="nameOnCard"
+                required
+              />
+            </div>
+            <div class="col-md-12">
+              <label for="cardNumber" class="form-label">Card Number</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cardNumber"
+                required
+                placeholder="XXXX-XXXX-XXXX-XXXX"
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="expireDate" class="form-label">Expire Date</label>
+              <input
+                type="text"
+                class="form-control"
+                id="expireDate"
+                placeholder="MM/YY"
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="CVV" class="form-label">CVV</label>
+              <input
+                type="text"
+                class="form-control"
+                id="CVV"
+                placeholder="123"
+              />
+            </div>
+            <div class="col-md-12 row text-center mt-5">
+              <p class="col-md-6 text-light">Total(Inclusive of VAT)</p>
+              <p class="checkout-price col-md-6 text-light">EGP 6666.00</p>
+            </div>
+            <div class="col-md-12 mb-3 text-center">
+              <button
+                id="checkout-products"
+                type="submit"
+                class="col-md-6 p-3 btn btn-success"
+              >
+                Checkout
+              </button>
+            </div>
+          </form>
+
+          <!-- </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal for clear -->
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="clearAddressForm"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1
+              class="modal-title fs-5"
+              id="exampleModalLabel"
+              style="color: white; font-size: 2rem; font-weight: bold"
+            >
+              Oops!
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div
+            class="modal-body"
+            style="color: white; font-size: 1.2rem; font-weight: bold"
+          >
+            Are your sure that you want to clear the form ?
+          </div>
+          <div class="modal-footer" style="position: relative">
+            <img
+              src="../view/assets/images/oops-Photoroom.png"
+              width="50px"
+              alt=""
+              style="position: absolute; left: 10px"
+            />
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="btn btn-success confirm-clear"
+              data-bs-dismiss="modal"
+            >
+              Confirm
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- submit address confirm message modal -->
+    <!-- <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button> -->
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div
+        id="liveToast"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <!-- <img src="..." class="rounded me-2" alt="..." /> -->
+          <strong class="me-auto">Message</strong>
+          <small>1 second ago</small>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body" style="color: #fff; font-size: 1.1rem">
+          Form submitted successfully !
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast for debit card validation -->
+    <!-- <button type="button" class="btn btn-primary" id="liveToastBtn">
+      Show live toast
+    </button> -->
+
+    <div
+      class="toast-container position-fixed bottom-0 end-0 p-3 toastDebitCard"
+    >
+      <div
+        id="liveToast"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto">Checkout</strong>
+          <small>1 second ago</small>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div
+          class="toast-body"
+          class="toast-body"
+          style="color: #fff; font-size: 1.1rem"
+        >
+          Payment completed successfully.
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal For not submitted address -->
+    <!-- <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#addressNotSubmitted"
+    >
+      Small modal
+    </button> -->
+    <div
+      class="modal fade"
+      id="addressNotSubmitted"
+      tabindex="-1"
+      aria-labelledby="exampleModalSmLabel"
+      aria-hidden="true"
+      style="display: none"
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-4" id="exampleModalSmLabel">Oops!</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" style="font-size: 0.9rem">
+            You didn't submit your address yet !
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../control/checkout-script.js"></script>
+  </body>
+</html>

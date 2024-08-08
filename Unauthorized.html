@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unauthorized Access</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f8d7da;
+        color: #721c24;
+      }
+      .container {
+        text-align: center;
+        border: 1px solid #f5c6cb;
+        background-color: #f8d7da;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        font-size: 2.5em;
+        margin: 0 0 10px;
+      }
+      p {
+        font-size: 1.2em;
+        margin: 0;
+      }
+    </style>
+    <script>
+      setTimeout(function () {
+        window.location.href = './index.html';
+      }, 4000);
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        <i class="fa-solid fa-triangle-exclamation"></i> Unauthorized Access
+      </h1>
+      <p>You do not have permission to access this page.</p>
+    </div>
+  </body>
+</html>
